@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/vant.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="app-top">
+            <div class="top-left">
+                <p>请输入开始时间</p>
+                <van-field v-model="startDate" class="input" placeholder="请输入开始时间" />
+            </div>
+            <div>--</div>
+            <div class="top-right">
+                <p>请输入截止时间</p>
+                <van-field v-model="endDate" class="input" placeholder="请输入截止时间" />
+            </div>
+            <p>{{ timeStr }}</p>
+            <van-button type="info" class="btn" @click="clickBtn()" :disabled="disabled">确定</van-button>
+        </div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/vant.js"></script>
+    <script src="./js/setRem.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
