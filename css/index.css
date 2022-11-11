@@ -29,18 +29,17 @@ html, body, div, li, span, p, img {
 }
 .app-top >div {
     position: relative;
-    width: 45%;
+    width: 47%;
     height: 1rem;
     padding-top: .2rem;
     text-align: center;
     float: left;
 }
 .app-top >div:nth-child(2) {
-    width: 7%;
-    line-height: .6rem;
+    width: 5%;
 }
 .app-top >div .input{
-    width: 90%;
+    width: 100%;
     position: absolute;
     left: 50%;top: 70%;
     transform: translate(-50%, -50%);
