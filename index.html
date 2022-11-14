@@ -19,12 +19,12 @@
             <div class="app-content">
                 <div class="content-left">
                     <p>请输入开始时间</p>
-                    <van-field v-model="startDate" class="input" placeholder="开始时间" />
+                    <van-field v-model="startDate" class="input" :class="{'color':startDate}" placeholder="开始时间" />
                 </div>
                 <div>--</div>
                 <div class="content-right">
                     <p>请输入截止时间</p>
-                    <van-field v-model="endDate" class="input" placeholder="截止时间" />
+                    <van-field v-model="endDate" class="input" :class="{'color':endDate}" placeholder="截止时间" />
                 </div>
                 <p>{{ timeStr }}</p>
                 <van-button type="info" class="confirmbtn" @click="clickBtn()" :disabled="disabled">确定</van-button>
