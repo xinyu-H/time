@@ -18,16 +18,27 @@ html, body, div, li, span, p, img {
     font-size: .16rem;
     padding: .1rem;
 }
+.app-title {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px dashed #aaa;
+    padding-bottom: .1rem;
+    font-size: .15rem;
+}
 .app-top {
     width: 100%;
-    padding: 0 .1rem .1rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    padding: .1rem;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(150, 150, 150, 0.6);
     border-radius: .1rem;
 }
-.app-top >div {
+.app-top .app-content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.app-top .app-content>div {
     position: relative;
     width: 47%;
     height: 1rem;
@@ -35,7 +46,7 @@ html, body, div, li, span, p, img {
     text-align: center;
     float: left;
 }
-.app-top >div:nth-child(2) {
+.app-top .app-content>div:nth-child(2) {
     width: 5%;
 }
 .app-top >div .input{
@@ -47,9 +58,11 @@ html, body, div, li, span, p, img {
     border-radius: .05rem;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
-.app-top >.btn {
+.app-top .app-content >.confirmbtn {
     width: 80%;
     border-radius: .06rem;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    font-size: .17rem;
+}
+.app-top .app-content >.delbtn {
+    border-radius: .06rem;
 }
