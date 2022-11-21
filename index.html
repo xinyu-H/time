@@ -27,7 +27,8 @@
                     <van-field v-model="endDate" class="input" :class="{'color':endDate}" placeholder="截止时间" />
                 </div>
                 <p>{{ timeStr }}</p>
-                <van-button type="info" class="confirmbtn" @click="clickBtn()" :disabled="disabled">确定</van-button>
+                <van-button type="info" class="confirmbtn" :class="{'showWidth': showReckonTime}" @click="clickBtn()" :disabled="disabled">确定</van-button>
+                <van-button type="info" class="confirmbtn showWidth" @click="clickBtn('1')" v-if="showReckonTime">倒计时</van-button>
                 <van-button type="danger" class="delbtn" @click="empty()" v-if="timeStr">清空</van-button>
             </div>
         </div>

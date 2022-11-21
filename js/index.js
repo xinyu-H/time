@@ -3,16 +3,25 @@ const app = new Vue({
     data: {
         startDate: '',
         endDate: '',
-        timeStr: ''
+        timeStr: '',
+        run: null,
     },
     computed: {
         disabled () {
-            if(this.startDate.trim() || this.endDate.trim()) return false
-            return true
+            if(this.startDate.trim() || this.endDate.trim()) return false;
+            return true;
+        },
+        showReckonTime () {
+            if(this.startDate.trim() && this.endDate.trim()) {
+                return false;
+            } else {
+                let time = this.startDate.trim() || this.endDate.trim()
+                return new Date(time).getTime() > Date.now()
+            }
         }
     },
     methods: {
-        clickBtn() {
+        clickBtn(val) {
             // 两个时间都输入了
             if(this.startDate.trim() && this.endDate.trim()) {
                 if(!this.checkDate(this.startDate.trim()) || !this.checkDate(this.endDate.trim())) {
@@ -23,13 +32,21 @@ const app = new Vue({
                 if(!this.checkDate(this.startDate.trim() || this.endDate.trim())) {
                     return vant.Toast('你输入的时间格式不对')
                 }
+                if(val) {
+                    this.run = setInterval(() => {
+                        this.getDateTime(this.startDate || this.endDate)
+                    }, 1000)
+                    return
+                }
                 this.getDateTime(this.startDate || this.endDate)
             }
         },
         getDateTime(start, end = new Date()) {
             let sD = new Date(start).getTime()
             let eD = new Date(end).getTime()
+            if(this.showReckonTime) [sD, eD] = [eD, sD];
             let diff = (eD - sD) / 1000
+            if (diff <= 0) clearInterval(this.run);
             let d = this.patch(diff / (24 * 3600));
             let h = this.patch(diff / 3600 % 24);
             let m = this.patch(diff % 3600 / 60);
@@ -40,6 +57,7 @@ const app = new Vue({
             this.startDate = ''
             this.endDate = ''
             this.timeStr = ''
+            clearInterval(this.run)
         },
         patch(str){
             str = parseInt(str)
