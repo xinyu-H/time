@@ -32,13 +32,13 @@ const app = new Vue({
                 if(!this.checkDate(this.startDate.trim() || this.endDate.trim())) {
                     return vant.Toast('你输入的时间格式不对')
                 }
+                this.getDateTime(this.startDate || this.endDate)
                 if(val) {
                     this.run = setInterval(() => {
                         this.getDateTime(this.startDate || this.endDate)
                     }, 1000)
                     return
                 }
-                this.getDateTime(this.startDate || this.endDate)
             }
         },
         getDateTime(start, end = new Date()) {
